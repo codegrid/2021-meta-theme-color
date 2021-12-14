@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- テーマカラー設定 -->
+<meta name="theme-color" content="tomato" id="themeColor">
+<title>meta theme-colorをJavaScriptから操作する</title>
+<style>
+body {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+
+label {
+  display: block;
+  padding: 1em;
+  border: 1px solid gray;
+  background-color: white;
+}
+</style>
+</head>
+<body>
+
+<label>
+  <input type="color" value="" id="colorInput">
+  テーマカラーと背景色を変更する
+</label>
+
+<script>
+const input = document.querySelector('#colorInput');
+const themeColor = document.querySelector('#themeColor');
+const bodyStyle = document.body.style;
+
+input.addEventListener('change', event => {
+  const color = event.target.value;
+  themeColor.setAttribute('content', color);
+  bodyStyle.backgroundColor = color;
+});
+</script>
+</body>
+</html>
